@@ -9,6 +9,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+/*
+Added:
+-MVC Middleware to ConfigureServices
+- UseRouting in Configure
+- UseEndpoints in Configure
+
+Configured Exception Handling*/
+
 namespace WishList
 {
     public class Startup
@@ -29,7 +37,7 @@ namespace WishList
                 app.UseDeveloperExceptionPage(); // To get a better detailed error pages
             }
             app.UseRouting();
-            app.UseEndpoints(endponts => { endponts.MapDefaultControllerRoute(); });
+            app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
 /*            app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
