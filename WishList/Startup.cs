@@ -23,10 +23,17 @@ namespace WishList
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.Run(async (context) =>
+            if (env.IsDevelopment())
+            {
+                // app.UseExceptionHandler("/Home/Error"); 
+                app.UseDeveloperExceptionPage(); // To get a better detailed error pages
+            }
+            app.UseRouting();
+            app.UseEndpoints(endponts => { endponts.MapDefaultControllerRoute(); });
+/*            app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
-            });
+            });*/
         }
     }
 }
